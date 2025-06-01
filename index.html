@@ -1,31 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Movies Rating</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
-  </head>
-  <body>
-    <div class="page-header">
-      <h1 class="page-title"><i class="fa-solid fa-film"></i> Movies Rating</h1>
-      <p class="page-subtitle">
-        Discover, rate, and share your favorite movies with fellow fans.
-      </p>
-    </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Movie Rating Website</title>
 
-    <div class="movie-container" id="movieContainer">
-      <!-- Movies will be loaded here -->
-    </div>
+  <!-- Inter Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
 
-    <script src="script.js"></script>
-  </body>
+  <!-- Font Awesome CDN (CORS-safe) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    integrity="sha512-SzlrxWriCjcXUe8kpv9U3tdDTH0vZvh9z8QZCkMIx/7Nf4U9zkMyVRAU5NnFEyhtGOA2DgxCzXz65Xy0U2H9xg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1 class="main-title"><i class="fas fa-film"></i> Movie Rating Website</h1>
+    <p class="subtitle">Discover and rate your favorite films anonymously. Your voice matters!</p>
+    <div id="movies-container" class="movies-grid"></div>
+  </div>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
 </html>
