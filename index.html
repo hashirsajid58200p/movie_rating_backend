@@ -3,31 +3,46 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Movie Rating Website</title>
-
-  <!-- Inter Font -->
+  <title>Movie Rating</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
-
-  <!-- Font Awesome CDN (CORS-safe) -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    integrity="sha512-SzlrxWriCjcXUe8kpv9U3tdDTH0vZvh9z8QZCkMIx/7Nf4U9zkMyVRAU5NnFEyhtGOA2DgxCzXz65Xy0U2H9xg=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
-
-  <!-- Custom CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
-    <h1 class="main-title"><i class="fas fa-film"></i> Movie Rating Website</h1>
+    <h1 class="main-title"><i class="fas fa-film"></i> Movies Rating</h1>
     <p class="subtitle">Discover and rate your favorite films anonymously. Your voice matters!</p>
     <div id="movies-container" class="movies-grid"></div>
   </div>
 
-  <!-- Script -->
+  <!-- Review Modal -->
+  <div id="review-modal" class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-left">
+        <h3>Reviews</h3>
+        <div id="reviews-list"></div>
+      </div>
+      <div class="modal-right">
+        <h3>Add Your Review</h3>
+        <div class="star-rating">
+          <i class="fas fa-star" data-rating="1"></i>
+          <i class="fas fa-star" data-rating="2"></i>
+          <i class="fas fa-star" data-rating="3"></i>
+          <i class="fas fa-star" data-rating="4"></i>
+          <i class="fas fa-star" data-rating="5"></i>
+        </div>
+        <textarea id="review-text" placeholder="Write your review..."></textarea>
+        <div class="modal-buttons">
+          <button id="submit-review">Submit</button>
+          <button id="cancel-review">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notification -->
+  <div id="notification" class="notification hidden">Review submitted successfully!</div>
+
   <script src="script.js"></script>
 </body>
 </html>
