@@ -2,22 +2,47 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
   <title>Movie Rating</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <header class="header">
+    <h1 class="header-title"><i class="fas fa-film"></i> Movie Ratings</h1>
+    <button id="login-btn" class="login-button">Admin Login</button>
+  </header>
+
+  <div id="login-modal" class="modal hidden">
+    <div class="modal-content login-modal-content">
+      <h2>Admin Login</h2>
+      <form id="login-form">
+        <div class="input-group">
+          <label for="admin-email">Email</label>
+          <input type="email" id="admin-email" value="admin@example.com" readonly />
+        </div>
+        <div class="input-group">
+          <label for="admin-password">Password</label>
+          <input type="password" id="admin-password" value="admin123" readonly />
+        </div>
+        <div class="modal-buttons">
+          <button type="submit" id="submit-login" class="login-button">Login</button>
+          <button type="button" id="close-login" class="login-cancel">Cancel</button>
+        </div>
+        <p id="login-error" class="login-error"></p>
+      </form>
+    </div>
+  </div>
+
   <div class="container">
-    <h1 class="main-title"><i class="fas fa-film"></i> Movies Rating</h1>
     <p class="subtitle">Discover and rate your favorite films anonymously. Your voice matters!</p>
     <div id="movies-container" class="movies-grid"></div>
   </div>
 
-  <!-- Review Modal -->
   <div id="review-modal" class="modal hidden">
-    <div class="modal-content">
+    <div class="modal-content review-modal-content">
       <div class="modal-left">
         <h3>Reviews</h3>
         <div id="reviews-list"></div>
@@ -33,14 +58,13 @@
         </div>
         <textarea id="review-text" placeholder="Write your review..."></textarea>
         <div class="modal-buttons">
-          <button id="submit-review">Submit</button>
-          <button id="cancel-review">Cancel</button>
+          <button id="submit-review" class="submit-button">Submit</button>
+          <button id="cancel-review" class="cancel-button">Cancel</button>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Notification -->
   <div id="notification" class="notification hidden">Review submitted successfully!</div>
 
   <script src="script.js"></script>

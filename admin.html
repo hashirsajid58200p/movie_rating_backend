@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+  <title>Admin Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+  <header class="header">
+    <h1 class="header-title"><i class="fas fa-cog"></i> Admin Dashboard</h1>
+    <button id="logout-button" class="logout-button">Logout</button>
+  </header>
+
+  <main class="admin-container">
+    <section class="upload-section">
+      <h2>Add New Movie</h2>
+      <div class="input-group">
+        <label for="movie-title">Title</label>
+        <input type="text" id="movie-title" placeholder="e.g. Inception" />
+      </div>
+      <div class="input-group">
+        <label for="movie-year">Release Year</label>
+        <input type="number" id="movie-year" placeholder="e.g. 2010" />
+      </div>
+      <div class="input-group">
+        <label for="movie-poster">Poster Image</label>
+        <input type="file" id="movie-poster" accept="image/*" />
+      </div>
+      <button id="add-movie-button" class="add-movie-button">Submit New Movie</button>
+      <p id="add-error" class="error-text"></p>
+      <p id="add-success" class="success-text"></p>
+    </section>
+
+    <section class="existing-section">
+      <h2>Existing Movies</h2>
+      <div id="movies-list" class="movies-list"></div>
+    </section>
+  </main>
+
+  <script src="admin.js"></script>
+</body>
+</html>

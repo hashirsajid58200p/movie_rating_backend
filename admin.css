@@ -1,0 +1,191 @@
+/* ──────────────────────────────────────────────────────────────────────────
+   Global Reset & Dark Theme
+────────────────────────────────────────────────────────────────────────── */
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #121212;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Header & Logout Button
+────────────────────────────────────────────────────────────────────────── */
+.header {
+  position: relative;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1e1e1e;
+}
+.header-title {
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.header-title .fas {
+  color: #e58116;
+}
+.logout-button {
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  background: #c0392b;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+.logout-button:hover {
+  background: #992d22;
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Admin Container
+────────────────────────────────────────────────────────────────────────── */
+.admin-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem 2rem;
+  background: #1e1e1e;
+  border-radius: 12px;
+  position: relative;
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Upload (Add New Movie) Section
+────────────────────────────────────────────────────────────────────────── */
+.upload-section,
+.existing-section {
+  margin-top: 2rem;
+}
+.upload-section h2,
+.existing-section h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+.input-group label {
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+  color: #a3a3a3;
+}
+.input-group input[type="text"],
+.input-group input[type="number"] {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 5px;
+  background: #3a3838;
+  color: #fff;
+}
+.input-group input[type="file"] {
+  color: #fff;
+}
+
+.add-movie-button {
+  background: #e58116;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+.add-movie-button:hover {
+  background: #c9690f;
+}
+.error-text {
+  color: #ff6b6b;
+  margin-top: 0.5rem;
+}
+.success-text {
+  color: #2ecc71;
+  margin-top: 0.5rem;
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Existing Movies List
+────────────────────────────────────────────────────────────────────────── */
+.movies-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  justify-items: center;
+}
+.movie-admin-card {
+  background: #2f2e2e;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  position: relative;
+  max-width: 180px;
+  width: 100%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+.movie-admin-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+}
+.movie-admin-card h3 {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+.movie-admin-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #bbbbbb;
+}
+.delete-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: #c0392b;
+  color: #fff;
+  border: none;
+  padding: 0.3rem 0.5rem;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+.delete-button:hover {
+  background: #992d22;
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Mobile Adjustments
+────────────────────────────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .admin-container {
+    margin: 1rem;
+    padding: 1rem;
+  }
+  .movies-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+  }
+  .movie-admin-card {
+    max-width: 140px;
+  }
+}

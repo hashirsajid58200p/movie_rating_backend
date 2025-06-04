@@ -1,3 +1,9 @@
+/* ──────────────────────────────────────────────────────────────────────────
+   Global Reset & Dark Theme
+────────────────────────────────────────────────────────────────────────── */
+* {
+  box-sizing: border-box;
+}
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
@@ -5,7 +11,6 @@ body {
   color: #ffffff;
   overflow-x: hidden;
 }
-
 body::-webkit-scrollbar {
   display: none;
 }
@@ -14,37 +19,67 @@ body {
   scrollbar-width: none;
 }
 
-.container {
-  padding: 2rem;
-  text-align: center;
+/* ──────────────────────────────────────────────────────────────────────────
+   Header & Login Button
+────────────────────────────────────────────────────────────────────────── */
+.header {
+  position: relative;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1e1e1e;
 }
-
-.main-title {
+.header-title {
   font-size: 2rem;
-  margin-top: 1rem;
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 0.75rem;
 }
-
-.main-title .fas {
-  margin-right: 0.8rem;
+.header-title .fas {
   color: #e58116;
 }
-
-.subtitle {
-  color: #a3a3a3;
-  font-size: 1rem;
-  margin-bottom: 2rem;
+.login-button {
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  background: #e58116;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+.login-button:hover {
+  background: #c9690f;
 }
 
+/* ──────────────────────────────────────────────────────────────────────────
+   Subtitle & Container
+────────────────────────────────────────────────────────────────────────── */
+.subtitle {
+  text-align: center;
+  color: #a3a3a3;
+  font-size: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+.container {
+  padding: 0 2rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Movies Grid & Cards
+────────────────────────────────────────────────────────────────────────── */
 .movies-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 1.5rem;
   justify-items: center;
 }
-
 .movie-card {
   background-color: #1e1e1e;
   border-radius: 12px;
@@ -53,48 +88,45 @@ body {
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
   max-width: 200px;
   width: 100%;
+  text-align: center;
 }
-
 .movie-card:hover {
   transform: scale(1.05);
 }
-
 .movie-card img {
   width: 100%;
   height: auto;
   display: block;
 }
-
 .movie-info {
   padding: 1rem;
 }
-
 .movie-info h3 {
   margin: 0.5rem 0 0.25rem;
   font-size: 1rem;
 }
-
 .movie-info p {
   margin: 0;
   font-size: 0.9rem;
   color: #bbbbbb;
 }
-
 .review-button {
   background-color: #e58116;
   color: #ffffff;
   border: none;
   padding: 0.5rem 1rem;
-  margin: 0.5rem 0;
+  margin: 0.5rem 0 0;
   border-radius: 5px;
   cursor: pointer;
   font-size: 0.9rem;
 }
-
 .review-button:hover {
   background-color: #c9690f;
 }
 
+/* ──────────────────────────────────────────────────────────────────────────
+   Modals (Login & Review) Common Styles
+────────────────────────────────────────────────────────────────────────── */
 .modal {
   position: fixed;
   top: 0;
@@ -107,54 +139,106 @@ body {
   align-items: center;
   z-index: 1000;
 }
-
 .modal.hidden {
   display: none;
 }
-
 .modal-content {
   background: #2f2e2e;
   border-radius: 12px;
   width: 90%;
-  max-width: 800px;
+  max-width: 600px;
   display: flex;
   padding: 1.5rem;
   gap: 1rem;
 }
 
-.modal-left, .modal-right {
+/* ──────────────────────────────────────────────────────────────────────────
+   Login Modal Specific Styles
+────────────────────────────────────────────────────────────────────────── */
+.login-modal-content {
+  flex-direction: column;
+  max-width: 400px;
+  padding: 2rem;
+  gap: 1rem;
+  background: #2f2e2e;
+}
+.input-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+.input-group label {
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+  color: #a3a3a3;
+}
+.input-group input {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 5px;
+  background: #3a3838;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+.login-cancel {
+  background: #555;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+.login-cancel:hover {
+  background: #333;
+}
+.login-error {
+  color: #ff6b6b;
+  font-size: 0.9rem;
+  height: 1rem;
+  margin-top: 0.5rem;
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Review Modal Specific Styles
+────────────────────────────────────────────────────────────────────────── */
+.review-modal-content {
+  width: 90%;
+  max-width: 800px;
+  display: flex;
+  gap: 2rem;
+}
+.modal-left,
+.modal-right {
   flex: 1;
   max-height: 400px;
   overflow-y: auto;
 }
-
-.modal-left h3, .modal-right h3 {
-  margin-top: 0;
+.modal-left::-webkit-scrollbar,
+.modal-right::-webkit-scrollbar {
+  display: none;
 }
-
-.modal-left, .modal-right {
+.modal-left,
+.modal-right {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-
-.modal-left::-webkit-scrollbar, .modal-right::-webkit-scrollbar {
-  display: none;
+.modal-left h3,
+.modal-right h3 {
+  margin-top: 0;
+  color: #f1f1f1;
 }
-
 .star-rating {
   font-size: 1.5rem;
   margin: 1rem 0;
 }
-
 .star-rating .fa-star {
   color: #555;
   cursor: pointer;
 }
-
 .star-rating .fa-star.selected {
   color: #e58116;
 }
-
 #review-text {
   width: 100%;
   min-width: 200px;
@@ -167,45 +251,34 @@ body {
   padding: 0.5rem 1rem;
   margin-bottom: 1rem;
   outline: none;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  box-sizing: border-box;
 }
-
 #review-text:focus {
-  outline: 2px solid #e58116;
+  box-shadow: 0 0 0 2px #e58116;
 }
-
 .modal-buttons {
   display: flex;
   gap: 1rem;
 }
-
 .modal-buttons button {
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
-
-#submit-review {
+.submit-button {
   background-color: #e58116;
   color: #fff;
 }
-
-#submit-review:hover {
+.submit-button:hover {
   background-color: #c9690f;
 }
-
-#cancel-review {
+.cancel-button {
   background-color: #555;
   color: #fff;
 }
-
-#cancel-review:hover {
+.cancel-button:hover {
   background-color: #333;
 }
-
 .review-item {
   background: #3a3838;
   padding: 1rem;
@@ -213,12 +286,14 @@ body {
   border-radius: 8px;
   border-left: 4px solid #e58116;
 }
-
 .review-item p {
   margin: 0.5rem 0;
   line-height: 1.4;
 }
 
+/* ──────────────────────────────────────────────────────────────────────────
+   Notification Banner
+────────────────────────────────────────────────────────────────────────── */
 .notification {
   position: fixed;
   top: -100px;
@@ -230,35 +305,37 @@ body {
   z-index: 2000;
   transition: top 0.5s ease-in-out;
 }
-
 .notification.show {
   top: 20px;
 }
-
 .notification.hidden {
   display: none;
 }
 
+/* ──────────────────────────────────────────────────────────────────────────
+   Responsive Adjustments
+────────────────────────────────────────────────────────────────────────── */
 @media (max-width: 768px) {
-  .main-title {
+  .header-title {
     font-size: 1.5rem;
   }
-
+  .login-button {
+    top: 0.5rem;
+    right: 1rem;
+  }
   .movies-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
   }
-
   .movie-card {
     max-width: 160px;
   }
-
-  .modal-content {
+  .review-modal-content {
     flex-direction: column;
     max-height: 80vh;
   }
-
-  .modal-left, .modal-right {
+  .modal-left,
+  .modal-right {
     max-height: none;
   }
 }
